@@ -9,6 +9,7 @@ function App() {
      
      프로젝트 시작
      action
+     action1
     </div>
   );
 }
