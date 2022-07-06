@@ -8,6 +8,7 @@ function App() {
       <Navigation />
      
      프로젝트 시작
+     action
     </div>
   );
 }
