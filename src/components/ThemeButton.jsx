@@ -1,4 +1,4 @@
-const ThemeButton = () =>{
-    return  <div>#겨울 방한템</div>;
+const ThemeButton = ({themeName}) =>{
+    return  <div>{themeName}</div>;
 };
 export default ThemeButton;

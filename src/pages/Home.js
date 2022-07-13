@@ -1,12 +1,13 @@
 import Navigation from "../components/Navigation";
+import ThemeButton from "../components/ThemeButton";
 const Home = ()=>{
     return (
     <div>
         <div>
             <Navigation/>
             {/* ThemeButton*/}
-            <div>#겨울 방한템</div>
-            <div>#따순머그컵</div>
+            <ThemeButton themeName={"#겨울 방한템"}/>
+            <ThemeButton themeName={"#따순머그컵"}/>
         </div>
 
         <div>
