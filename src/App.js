@@ -9,11 +9,11 @@ import './App.css';
 
 function App() {
   return (
-    <BrowserRouter> 
+    <BrowserRouter basename="comento-shopping"> 
       <Routes>
         <Route path="/" element={<Home/>}/>
         <Route path="/product/:productId" element={<ProductDetail/>}/>
-        <Route path="/Basket" element={<Basket/>}/>
+        <Route path="/basket" element={<Basket/>}/>
 
       </Routes>
     </BrowserRouter>
