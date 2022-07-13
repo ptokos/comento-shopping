@@ -1,9 +1,10 @@
+import Navigation from "../components/Navigation";
 const Home = ()=>{
     return (
     <div>
-        <div> 코멘토 쇼핑 </div>
-        
         <div>
+            <Navigation/>
+            {/* ThemeButton*/}
             <div>#겨울 방한템</div>
             <div>#따순머그컵</div>
         </div>
