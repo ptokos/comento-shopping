@@ -1,9 +1,24 @@
+import styled from "styled-components";
+
 const Navigation = () =>{
     return (
     <div> 
-        <div> 코멘토 쇼핑 </div>
+        <Navigationstyled> 코멘토 쇼핑 </Navigationstyled>
      </div>
     );
 };
+
+const Navigationstyled = styled.div`
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 26px;
+
+    display: flex;
+    align-items: center;
+    text-align: center;
+    padding: 20px 152px ;
+
+    color: #000000;
+`
 
 export default Navigation;
