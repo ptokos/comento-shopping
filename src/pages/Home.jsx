@@ -6,12 +6,15 @@ import { mockTheme1Produdcts } from "../data/mockData";
 import { mockTheme2Produdcts } from "../data/mockData";
 
 const Home = () => {
+  // state(상태), 내부적, 리액트에서 변수를 다루는 설명 중 하나이고 하나의 컴포넌트 안에서 사용된다
+  const [products, setProduct] = useState();
   return (
     <div>
       <div>
         <Navigation />
         <ThemeSection>
           <ThemeButton themeName={"#겨울방한템"} />
+          {/* props, 외부적, 외부에서 값을 넘겨주는 형태  */}
           <ThemeButton themeName={"#따순머그컵"} />
         </ThemeSection>
         <GrayLine />
@@ -19,6 +22,7 @@ const Home = () => {
 
       <div>
         <ProductSection>
+          {/* mockTheme1Produdcts는 배열이고 배열의 값을 map함수를 통해 새로운 값으로 구성 */}
           {mockTheme1Produdcts.map((product) => (
             <ProductCard
               name={product.name}
