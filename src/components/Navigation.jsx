@@ -3,12 +3,12 @@ import styled from "styled-components";
 const Navigation = () =>{
     return (
     <div> 
-        <Navigationstyled> 코멘토 쇼핑 </Navigationstyled>
+        <NavigationStyled> 코멘토 쇼핑 </NavigationStyled>
      </div>
     );
 };
 
-const Navigationstyled = styled.div`
+const NavigationStyled = styled.div`
     font-weight: 700;
     font-size: 18px;
     line-height: 26px;
