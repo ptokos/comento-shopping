@@ -5,12 +5,14 @@ import styled from "styled-components";
 import { useEffect, useState } from "react";
 import { mockTheme1Produdcts } from "../data/mockData";
 import { mockTheme2Produdcts } from "../data/mockData";
+import { useNavigate } from "react-router-dom";
 
 const Home = () => {
   // state(상태), 내부적, 리액트에서 변수를 다루는 설명 중 하나이고 하나의 컴포넌트 안에서 사용된다
   // 보통 화면이 변할때 state를 사용한다
   // 다시 랜더링(UI그리는 거)되는 조건 값(state)
   const [products, setProducts] = useState();
+  const navigate = useNavigate();
 
   // 조건에 의해서 실행되는 함수
   useEffect(() => {
@@ -52,6 +54,7 @@ const Home = () => {
           {products ? (
             products.map((product) => (
               <ProductCard
+                onClick={() => navigate(`product/${product.id}`)}
                 key={product.id}
                 name={product.name}
                 description={product.description}
