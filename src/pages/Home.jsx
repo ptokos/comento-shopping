@@ -27,7 +27,6 @@ const Home = () => {
     } else if (themeId === 2) {
       setProducts(mockTheme2Produdcts);
     }
-    console.log("버튼누름");
   };
 
   return (
