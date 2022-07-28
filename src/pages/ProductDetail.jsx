@@ -10,6 +10,7 @@ const ProductDetail = () => {
   let { productId } = useParams();
   const [product, setProduct] = useState();
   const navigate = useNavigate();
+  const [activeButtonId, setActiveButtonId] = useState(1);
 
   useEffect(() => {
     const result = getProductDetail(productId);
