@@ -16,8 +16,13 @@ const ProductDetail = () => {
     setProduct(result);
   }, []);
 
+  const [color, setColor] = useState("#EEEEEE");
+
   const onClickDetailButton = (buttonId) => {
     setActiveButtonId(buttonId);
+    buttonId === 1
+      ? setColor(color === "#EEEEEE")
+      : setColor(color === "#FFFFFF");
   };
 
   return (
@@ -35,22 +40,30 @@ const ProductDetail = () => {
       )}
       <GrayLine></GrayLine>
       <ButtonSection>
-        <DetailButton1 onClick={() => onClickDetailButton(1)}>
+        <DetailButton1 color={color} onClick={() => onClickDetailButton(1)}>
           상품 설명
         </DetailButton1>
-        <DetailButton2 onClick={() => onClickDetailButton(2)}>
+        <DetailButton1 color={color} onClick={() => onClickDetailButton(2)}>
           상품 후기
-        </DetailButton2>
+        </DetailButton1>
       </ButtonSection>
-      {activeButtonId === 1 && <div>상품설명</div>}
-      {activeButtonId === 2 && <div>후기내용</div>}
+      {activeButtonId === 1 && (
+        <>
+          <img src={product.img} width="342" />
+        </>
+      )}
+      {activeButtonId === 2 && (
+        <>
+          <img src={product.review} width="341" />
+        </>
+      )}
       <GrayLine></GrayLine>
     </ProductDetailStyled>
   );
 };
 
 const DetailButton1 = styled.div`
-  background-color: #eeeeee;
+  background-color: ${(props) => props.color};
   font-weight: 700;
   font-size: 16px;
   line-height: 21px;
