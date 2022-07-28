@@ -3,7 +3,6 @@ import { useParams } from "react-router-dom";
 import styled from "styled-components";
 import Navigation from "../components/Navigation";
 import { getProductDetail } from "../data/mockData";
-import DetailButton from "../components/DetailButton";
 import { useNavigate } from "react-router-dom";
 
 const ProductDetail = () => {
@@ -20,6 +19,7 @@ const ProductDetail = () => {
   const onClickDetailButton = (buttonId) => {
     setActiveButtonId(buttonId);
   };
+
   return (
     <ProductDetailStyled>
       <button type="button" onclick={() => navigate(-1)}>
@@ -35,19 +35,39 @@ const ProductDetail = () => {
       )}
       <GrayLine></GrayLine>
       <ButtonSection>
-        <DetailButton
-          detailName={"상품 설명"}
-          onClick={() => onClickDetailButton(1)}
-        />
-        <DetailButton
-          detailName={"상품 후기"}
-          onClick={() => onClickDetailButton(2)}
-        />
+        <DetailButton1 onClick={() => onClickDetailButton(1)}>
+          상품 설명
+        </DetailButton1>
+        <DetailButton2 onClick={() => onClickDetailButton(2)}>
+          상품 후기
+        </DetailButton2>
       </ButtonSection>
+      {activeButtonId === 1 && <div>상품설명</div>}
+      {activeButtonId === 2 && <div>후기내용</div>}
       <GrayLine></GrayLine>
     </ProductDetailStyled>
   );
 };
+
+const DetailButton1 = styled.div`
+  background-color: #eeeeee;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 21px;
+  padding: 14px 66px;
+
+  color: #000000;
+`;
+
+const DetailButton2 = styled.div`
+  background-color: #ffffff;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 21px;
+  padding: 14px 66px;
+
+  color: #000000;
+`;
 
 const ButtonSection = styled.div`
   display: flex;
