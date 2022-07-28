@@ -38,23 +38,10 @@ const ProductDetail = () => {
         <DetailButton
           detailName={"상품 설명"}
           onClick={() => onClickDetailButton(1)}
-          //   product &&
-          //   product.type === "상품설명" && (
-          //     <>
-          //       <img src={product.img} />
-          //     </>
-          //   )
-          // }
         />
         <DetailButton
           detailName={"상품 후기"}
           onClick={() => onClickDetailButton(2)}
-          //   onClick={product && product.type === "상품후기" && (
-          //     <>
-          //   <img src={product.revivew} />
-          //     </>
-          // )
-          //   }
         />
       </ButtonSection>
       <GrayLine></GrayLine>
