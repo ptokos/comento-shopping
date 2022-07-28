@@ -4,10 +4,12 @@ import styled from "styled-components";
 import Navigation from "../components/Navigation";
 import { getProductDetail } from "../data/mockData";
 import DetailButton from "../components/DetailButton";
+import { useNavigate } from "react-router-dom";
 
 const ProductDetail = () => {
   let { productId } = useParams();
   const [product, setProduct] = useState();
+  const navigate = useNavigate();
 
   useEffect(() => {
     const result = getProductDetail(productId);
@@ -23,7 +25,7 @@ const ProductDetail = () => {
   };
   return (
     <ProductDetailStyled>
-      <button type="button" onclick="http://localhost:3000/comento-shopping">
+      <button type="button" onclick={() => navigate(-1)}>
         {" < "}
       </button>
       <Navigation />
