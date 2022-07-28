@@ -18,11 +18,7 @@ const ProductDetail = () => {
   }, []);
 
   const onClickDetailButton = (buttonId) => {
-    if (buttonId === 1) {
-      <img src={product.img} />;
-    } else if (buttonId === 2) {
-      <img src={product.revivew} />;
-    }
+    setActiveButtonId(buttonId);
   };
   return (
     <ProductDetailStyled>
