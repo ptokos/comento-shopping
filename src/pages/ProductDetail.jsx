@@ -44,7 +44,7 @@ const ProductDetail = () => {
         <>
           <img src={product.thumbnail} width="390" />
           <NameStyled>{product.name}</NameStyled>
-          <PriceStyled>{product.price}</PriceStyled>
+          <PriceStyled>{product.price}원</PriceStyled>
         </>
       )}
       <GrayLine></GrayLine>
