@@ -9,7 +9,7 @@ const BasketItem = ({ thumbnail, name, price, onClickRemoveButton }) => {
             <ProductImage styled={{ backgroundImage: `url(${thumbnail})` }} />
             <ColumLayout>
               <ProductName>{name}</ProductName>
-              <div>{price}원</div>
+              <div>{price}</div>
             </ColumLayout>
           </RowLayout>
           <CloseButton onClick={onClickRemoveButton}>X</CloseButton>
