@@ -36,7 +36,7 @@ const ProductDetail = () => {
 
   return (
     <ProductDetailStyled>
-      <button type="button" onclick={() => navigate(-1)}>
+      <button type="button" onclick={() => navigate("/")}>
         {" < "}
       </button>
       <Navigation />

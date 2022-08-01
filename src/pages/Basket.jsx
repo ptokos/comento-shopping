@@ -3,10 +3,12 @@ import Navigation from "../components/Navigation";
 import styled from "styled-components";
 import BasketItem from "../components/BasketItem";
 import { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 const Basket = () => {
   const [basketItems, setBasketItems] = useState();
   const [basketItemCount, setBasketItemCount] = useState(0);
+  const navigate = useNavigate();
 
   useEffect(() => {
     const items = storage.getBasketItems();
@@ -25,6 +27,11 @@ const Basket = () => {
     setBasketItemCount(basketItemCount - 1);
   };
 
+  const onClickOrderButton = () => {
+    alert("주문되었습니다.");
+    navigate("/");
+  };
+
   return (
     <BasketStyled>
       <Navigation name="장바구니" hasBack={true} />
@@ -40,10 +47,30 @@ const Basket = () => {
           />
         ))}
       <div> 상품 금액({basketItemCount}개)</div>
+
+      <OrderButton onClick={() => onClickOrderButton()}>주문하기</OrderButton>
     </BasketStyled>
   );
 };
 
 const BasketStyled = styled.div``;
+
+const OrderButton = styled.div`
+  background: #24dbaf;
+
+  height: 70px;
+  width: 110px;
+
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 21px;
+
+  display: flex;
+  align-items: center;
+  text-align: center;
+  padding: 20px 150px;
+
+  color: #000000;
+`;
 
 export default Basket;
