@@ -4,6 +4,7 @@ import styled from "styled-components";
 import Navigation from "../components/Navigation";
 import { getProductDetail } from "../data/mockData";
 import { useNavigate } from "react-router-dom";
+import * as storage from "../utils/storage";
 
 const ProductDetail = () => {
   let { productId } = useParams();
@@ -23,6 +24,14 @@ const ProductDetail = () => {
     buttonId === 1
       ? setColor(color === "#EEEEEE")
       : setColor(color === "#FFFFFF");
+  };
+
+  const onClickAddBasketButton = () => {
+    // 장바구니의 아이템을 담는다
+    storage.addBasket(product);
+
+    // 장바구니 페이지로 이동한다
+    navigate("/basket");
   };
 
   return (
@@ -47,20 +56,42 @@ const ProductDetail = () => {
           상품 후기
         </DetailButton1>
       </ButtonSection>
-      {activeButtonId === 1 && (
+      {product && activeButtonId === 1 && (
         <>
           <img src={product.img} width="342" />
         </>
       )}
-      {activeButtonId === 2 && (
+      {product && activeButtonId === 2 && (
         <>
           <img src={product.review} width="341" />
         </>
       )}
       <GrayLine></GrayLine>
+
+      <AddBasketButton onClick={() => onClickAddBasketButton()}>
+        장바구니 담기
+      </AddBasketButton>
     </ProductDetailStyled>
   );
 };
+
+const AddBasketButton = styled.div`
+  background: #24dbaf;
+
+  height: 70px;
+  width: 110px;
+
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 21px;
+
+  display: flex;
+  align-items: center;
+  text-align: center;
+  padding: 20px 150px;
+
+  color: #000000;
+`;
 
 const DetailButton1 = styled.div`
   background-color: ${(props) => props.color};
