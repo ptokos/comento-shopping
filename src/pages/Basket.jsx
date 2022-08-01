@@ -6,16 +6,23 @@ import { useEffect, useState } from "react";
 
 const Basket = () => {
   const [basketItems, setBasketItems] = useState();
+  const [basketItemCount, setBasketItemCount] = useState(0);
 
   useEffect(() => {
     const items = storage.getBasketItems();
     setBasketItems(items);
-    console.log(items);
+    setBasketItemCount(items.length);
   }, []);
 
-  //2. UI 구현
-  const onClickRemoveButton = () => {
-    alert("삭제");
+  //ItemCount가 바뀔때마다 실행하는 함수
+  useEffect(() => {
+    const items = storage.getBasketItems();
+    setBasketItems(items);
+  }, [basketItemCount]);
+
+  const onClickRemoveButton = (productId) => {
+    storage.removeBasketItem(productId);
+    setBasketItemCount(basketItemCount - 1);
   };
 
   return (
@@ -29,9 +36,10 @@ const Basket = () => {
             thumbnail={item.thumbnail}
             name={item.name}
             price={item.price}
-            onClickRemoveButton={onClickRemoveButton}
+            onClickRemoveButton={() => onClickRemoveButton(item.id)}
           />
         ))}
+      <div> 상품 금액({basketItemCount}개)</div>
     </BasketStyled>
   );
 };
