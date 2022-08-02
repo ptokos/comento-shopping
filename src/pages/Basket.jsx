@@ -8,6 +8,7 @@ import { useNavigate } from "react-router-dom";
 const Basket = () => {
   const [basketItems, setBasketItems] = useState();
   const [basketItemCount, setBasketItemCount] = useState(0);
+  const [basketItemTotalPrice, setBasketItemTotalPrice] = useState(0);
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -20,6 +21,15 @@ const Basket = () => {
   useEffect(() => {
     const items = storage.getBasketItems();
     setBasketItems(items);
+
+    //상품 합계를 계산하는 로직
+    let totalPrice = 0;
+
+    items.forEach((item) => {
+      console.log(item.price);
+      totalPrice += Number(item.price.replace(",", ""));
+      setBasketItemTotalPrice(totalPrice);
+    });
   }, [basketItemCount]);
 
   const onClickRemoveButton = (productId) => {
@@ -47,6 +57,7 @@ const Basket = () => {
           />
         ))}
       <div> 상품 금액({basketItemCount}개)</div>
+      <div> 상품 합계 : {basketItemTotalPrice.toLocaleString()} 원</div>
 
       <OrderButton onClick={() => onClickOrderButton()}>주문하기</OrderButton>
     </BasketStyled>

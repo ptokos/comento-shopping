@@ -17,13 +17,18 @@ const ProductDetail = () => {
     setProduct(result);
   }, []);
 
+  // useEffect(() => {
+  //   const items = storage.getBasketItems();
+  //   const total = items.reduce((prev, current) => prev + current.price, 0);
+  //   setBasketItems(items);
+  //   setTotalPrice(total);
+  // }, [basketItemCount]);
+
   const [color, setColor] = useState("#EEEEEE");
 
   const onClickDetailButton = (buttonId) => {
     setActiveButtonId(buttonId);
-    buttonId === 1
-      ? setColor(color === "#EEEEEE")
-      : setColor(color === "#FFFFFF");
+    // buttonId === 1 ? setColor("#EEEEEE") : setColor("#FFFFFF");
   };
 
   const onClickAddBasketButton = () => {
@@ -36,7 +41,7 @@ const ProductDetail = () => {
 
   return (
     <ProductDetailStyled>
-      <button type="button" onclick={() => navigate("/")}>
+      <button type="button" onClick={() => navigate("/")}>
         {" < "}
       </button>
       <Navigation />
@@ -49,10 +54,16 @@ const ProductDetail = () => {
       )}
       <GrayLine></GrayLine>
       <ButtonSection>
-        <DetailButton1 color={color} onClick={() => onClickDetailButton(1)}>
+        <DetailButton1
+          color={activeButtonId === 1 ? " #EEEEEE" : "#FFFFFF"}
+          onClick={() => onClickDetailButton(1)}
+        >
           상품 설명
         </DetailButton1>
-        <DetailButton1 color={color} onClick={() => onClickDetailButton(2)}>
+        <DetailButton1
+          color={activeButtonId === 2 ? " #EEEEEE" : "#FFFFFF"}
+          onClick={() => onClickDetailButton(2)}
+        >
           상품 후기
         </DetailButton1>
       </ButtonSection>
